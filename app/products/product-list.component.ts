@@ -1,8 +1,8 @@
 import { Component, OnInit } from 'angular2/core';
 import { IProduct } from './product';
-import { ProductFilterPipe } from './product-filter.pipe';
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
-interface IproductList{
+interface IProductList{
     pageTitle: string;
     filterText: string;
     showImage: boolean;
@@ -14,12 +14,12 @@ interface IproductList{
 @Component({
     selector: 'pm-products',
     templateUrl: 'app/products/product-list.component.html',
-    styleUrls: ['app/products/product-list.component.css'],
+    styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
     // styles: ['thead {color: red}']
     pipes: [ProductFilterPipe]
 })
 
-export class ProductListComponent implements IproductList, OnInit{
+export class ProductListComponent implements IProductList, OnInit{
 
     pageTitle: string = "Product List!";
     filterText: string = 'cart';

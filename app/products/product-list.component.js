@@ -1,4 +1,4 @@
-System.register(['angular2/core', './product-filter.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', './pipes/product-filter.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -72,7 +72,7 @@ System.register(['angular2/core', './product-filter.pipe'], function(exports_1, 
                     core_1.Component({
                         selector: 'pm-products',
                         templateUrl: 'app/products/product-list.component.html',
-                        styleUrls: ['app/products/product-list.component.css'],
+                        styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
                         // styles: ['thead {color: red}']
                         pipes: [product_filter_pipe_1.ProductFilterPipe]
                     }), 
