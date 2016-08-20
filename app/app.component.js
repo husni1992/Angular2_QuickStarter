@@ -23,7 +23,7 @@ System.register(['angular2/core', './products/product-list.component'], function
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.pageTitle = 'Acme Product Management';
+                    this.pageTitle = 'Acme Product Management!';
                 }
                 AppComponent = __decorate([
                     core_1.Component({

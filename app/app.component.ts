@@ -12,5 +12,5 @@ import { ProductListComponent } from './products/product-list.component';
     directives: [ProductListComponent]
 })
 export class AppComponent {
-    pageTitle: string = 'Acme Product Management';
+    pageTitle: string = 'Acme Product Management!';
 }

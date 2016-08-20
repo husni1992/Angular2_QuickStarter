@@ -42,7 +42,10 @@
                     <td>{{product.productCode | lowercase}}</td>
                     <td>{{product.releaseDate}}</td>
                     <td>{{product.price | currency:'USD':true:'1.2-2'}}</td>
-                    <td>{{product.starRating}}</td>
+                    <!--<td>{{product.starRating}}</td>-->
+                    <td>
+                        <rating-star (ratingClicked)="onNotify($event)" [rating]='product.starRating' [name]='filterText'></rating-star>
+                    </td>                    
                 </tr>                
             </tbody>
         </table>

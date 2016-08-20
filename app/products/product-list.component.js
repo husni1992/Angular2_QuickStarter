@@ -1,4 +1,4 @@
-System.register(['angular2/core', './pipes/product-filter.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './pipes/product-filter.pipe'], function(expor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, product_filter_pipe_1;
+    var core_1, product_filter_pipe_1, star_component_1;
     var ProductListComponent;
     return {
         setters:[
@@ -19,12 +19,15 @@ System.register(['angular2/core', './pipes/product-filter.pipe'], function(expor
             },
             function (product_filter_pipe_1_1) {
                 product_filter_pipe_1 = product_filter_pipe_1_1;
+            },
+            function (star_component_1_1) {
+                star_component_1 = star_component_1_1;
             }],
         execute: function() {
             ProductListComponent = (function () {
                 function ProductListComponent() {
                     this.pageTitle = "Product List!";
-                    this.filterText = 'cart';
+                    this.filterText = '';
                     this.showImage = false;
                     this.imageWidth = 50;
                     this.imageMargin = 2;
@@ -36,7 +39,7 @@ System.register(['angular2/core', './pipes/product-filter.pipe'], function(expor
                             "releaseDate": "March 19, 2016",
                             "description": "Leaf rake with 48-inch wooden handle.",
                             "price": 19.95,
-                            "starRating": 3.2,
+                            "starRating": 3.4,
                             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
                         },
                         {
@@ -61,6 +64,9 @@ System.register(['angular2/core', './pipes/product-filter.pipe'], function(expor
                         }
                     ];
                 }
+                ProductListComponent.prototype.onNotify = function (message) {
+                    this.pageTitle = 'Product List: ' + message;
+                };
                 ProductListComponent.prototype.ngOnInit = function () {
                     console.info('ngOnInit');
                 };
@@ -74,7 +80,8 @@ System.register(['angular2/core', './pipes/product-filter.pipe'], function(expor
                         templateUrl: 'app/products/product-list.component.html',
                         styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
                         // styles: ['thead {color: red}']
-                        pipes: [product_filter_pipe_1.ProductFilterPipe]
+                        pipes: [product_filter_pipe_1.ProductFilterPipe],
+                        directives: [star_component_1.StarComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ProductListComponent);

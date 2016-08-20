@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { IProduct } from './product';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
+import { StarComponent } from '../shared/star.component';
 
 interface IProductList{
     pageTitle: string;
@@ -16,13 +17,15 @@ interface IProductList{
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
     // styles: ['thead {color: red}']
-    pipes: [ProductFilterPipe]
+    pipes: [ProductFilterPipe],
+    directives: [StarComponent]
 })
 
+// component life cycle hook imorted 'OnInit'
 export class ProductListComponent implements IProductList, OnInit{
 
     pageTitle: string = "Product List!";
-    filterText: string = 'cart';
+    filterText: string = '';
     showImage: boolean = false;
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -35,7 +38,7 @@ export class ProductListComponent implements IProductList, OnInit{
             "releaseDate": "March 19, 2016",
             "description": "Leaf rake with 48-inch wooden handle.",
             "price": 19.95,
-            "starRating": 3.2,
+            "starRating": 3.4,
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
         },
         {
@@ -59,6 +62,10 @@ export class ProductListComponent implements IProductList, OnInit{
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
         }
     ];
+
+    onNotify(message: Object): void{
+        this.pageTitle = 'Product List: '+message;
+    }
 
     ngOnInit():void{
         console.info('ngOnInit')
