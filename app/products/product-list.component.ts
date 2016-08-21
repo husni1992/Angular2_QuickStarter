@@ -3,6 +3,7 @@ import { IProduct } from './product';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
 import { StarComponent } from '../shared/star.component';
 import {ProductService} from './services/product.service';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 interface IProductList{
     pageTitle: string;
@@ -14,12 +15,12 @@ interface IProductList{
 }
 
 @Component({
-    selector: 'pm-products',
+    // selector: 'pm-products', // this is not needed as we are calling the component from route, not as a directive <pm-products></pm-products> 
     templateUrl: 'app/products/product-list.component.html',
     styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
     // styles: ['thead {color: red}']
     pipes: [ProductFilterPipe],
-    directives: [StarComponent]
+    directives: [StarComponent, ROUTER_DIRECTIVES]
 })
 
 // component life cycle hook interface implemented 'OnInit'.

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star.component', './services/product.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star.component', './services/product.service', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, product_filter_pipe_1, star_component_1, product_service_1;
+    var core_1, product_filter_pipe_1, star_component_1, product_service_1, router_1;
     var ProductListComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star
             },
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             ProductListComponent = (function () {
@@ -50,12 +53,12 @@ System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star
                 };
                 ProductListComponent = __decorate([
                     core_1.Component({
-                        selector: 'pm-products',
+                        // selector: 'pm-products', // this is not needed as we are calling the component from route, not as a directive <pm-products></pm-products> 
                         templateUrl: 'app/products/product-list.component.html',
                         styleUrls: ['app/products/styles/product-list.component.css', 'app/products/styles/test.css'],
                         // styles: ['thead {color: red}']
                         pipes: [product_filter_pipe_1.ProductFilterPipe],
-                        directives: [star_component_1.StarComponent]
+                        directives: [star_component_1.StarComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [product_service_1.ProductService])
                 ], ProductListComponent);

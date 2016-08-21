@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <base href="/">
     <title>Acme Product Management</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -22,7 +23,10 @@
     <!--required for http-->
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
-     <!--to automatically include script files we add in app/main -->
+    <!--required for routing-->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+    <!--to automatically include script files we add in app/main -->
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
