@@ -29,14 +29,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.ratingClicked.emit("The rating " + this.rating + " was clicked");
                 };
                 StarComponent.prototype.ngOnInit = function () {
-                    console.info('ngOnInit');
+                    // to do things on initializing the component
+                    // implement the interface too "OnInit"
                 };
-                // this will run on every change in this omponent
+                // this will run on every change in this component
                 // ngDoCheck(): void{
                 //     console.log('ngDoCheck: name = ' + this.name);
                 // }
                 StarComponent.prototype.ngOnChanges = function () {
-                    console.log('ngOnChanges - name = ' + this.name);
+                    console.log('ngOnChanges: name = ' + this.name);
                     this.starWidth = this.rating * 86 / 5;
                 };
                 __decorate([

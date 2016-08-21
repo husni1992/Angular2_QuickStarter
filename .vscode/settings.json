@@ -6,5 +6,5 @@
         "**/*.js": true,
         "**/*.map": true
     } 
-    "files.autoSave": "afterDelay"
+    // "files.autoSave": "afterDelay"
 }

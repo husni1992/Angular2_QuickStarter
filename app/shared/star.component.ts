@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from 'angular2/core'; 
+import { Component, OnChanges, Input, Output, EventEmitter } from 'angular2/core'; 
 
 @Component({
     selector: 'rating-star',
@@ -7,7 +7,7 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from 'angul
 })
 
 // export class StarComponent implements OnChanges, OnInit, DoCheck{ if we want we can implement the life cycle hooks, so it must be implemented in the class
-export class StarComponent implements OnChanges, OnInit{
+export class StarComponent implements OnChanges{
     
     starWidth: number = this.rating * 86/5;
     
@@ -24,16 +24,17 @@ export class StarComponent implements OnChanges, OnInit{
     }
 
     ngOnInit():void{
-        console.info('ngOnInit')
+        // to do things on initializing the component
+        // implement the interface too "OnInit"
     }
 
-    // this will run on every change in this omponent
+    // this will run on every change in this component
     // ngDoCheck(): void{
     //     console.log('ngDoCheck: name = ' + this.name);
     // }
 
     ngOnChanges(): void{
-         console.log('ngOnChanges - name = ' + this.name);
+         console.log('ngOnChanges: name = ' + this.name);
          this.starWidth = this.rating * 86/5;
     }
 }
