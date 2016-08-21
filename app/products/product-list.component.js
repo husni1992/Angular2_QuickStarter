@@ -40,8 +40,9 @@ System.register(['angular2/core', './pipes/product-filter.pipe', '../shared/star
                     this.pageTitle = 'Product List: ' + message;
                 };
                 ProductListComponent.prototype.ngOnInit = function () {
-                    this.products = this._productService.getProducts();
-                    console.info('Recieved all products on ProductListComponent ngOnInit');
+                    var _this = this;
+                    this._productService.getProducts()
+                        .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
                 };
                 ProductListComponent.prototype.toggleImage = function () {
                     console.info(this.filterText);

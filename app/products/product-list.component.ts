@@ -26,6 +26,7 @@ interface IProductList{
 export class ProductListComponent implements IProductList, OnInit{
 
     pageTitle: string = "Product List!";
+    errorMessage: string;
     filterText: string = '';
     showImage: boolean = false;
     imageWidth: number = 50;
@@ -41,8 +42,10 @@ export class ProductListComponent implements IProductList, OnInit{
     }
 
     ngOnInit():void{
-        this.products = this._productService.getProducts();
-        console.info('Recieved all products on ProductListComponent ngOnInit')        
+        this._productService.getProducts()
+            .subscribe(
+                (products) => this.products = products,
+                (error) => this.errorMessage = <any>error);     
     }
 
     toggleImage(): void{

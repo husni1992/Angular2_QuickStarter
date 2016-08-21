@@ -1,6 +1,6 @@
 import { bootstrap } from 'angular2/platform/browser';
 
-// Our main component
+// main app component
 import { AppComponent } from './app.component';
 
 bootstrap(AppComponent);
