@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Child Component: Customer</h4>
+    </div>    
+    <div class="panel-body">
+        Name: {{name}}
+        <br>
+        Address: {{address | TestFilterPipe}}
+        <br>
+        <input type="text" [(ngModel)]="textX" (keyup)="pasTextX()" />
+        <button class="btn btn-primary" (click)="emmitEvent()">Click</button>
+        <button class="btn btn-success" (click)="getData()">GetData</button>
+        
+    </div>
+</div>

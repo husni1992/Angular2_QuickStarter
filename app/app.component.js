@@ -51,7 +51,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
                     router_1.RouteConfig([
                         { path: '/welcome', name: 'Welcome', component: welcome_component_1.WelcomeComponent, useAsDefault: true },
                         { path: '/products', name: 'Products', component: product_list_component_1.ProductListComponent },
-                        { path: '/product/:id', name: 'ProductDetail', component: product_detail_component_1.ProductDetailComponent }
+                        { path: '/product/:id', name: 'ProductDetail', component: product_detail_component_1.ProductDetailComponent },
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

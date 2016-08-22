@@ -3,6 +3,7 @@
         {{pageTitle}}
     </div>
     <div class="panel-body"  >
+        <pm-customer [name]="name" [address]="address" (textEvent)="checkText($event)" (clickEvent)="onNotify($event)"></pm-customer>
         <div class="row" >
             <img src="./app/assets/images/logo.jpg" 
                  class="img-responsive center-block"
