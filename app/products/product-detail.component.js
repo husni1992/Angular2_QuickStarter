@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './services/product.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,45 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, router_1, product_service_1, router_2;
     var ProductDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+                router_2 = router_1_1;
+            },
+            function (product_service_1_1) {
+                product_service_1 = product_service_1_1;
             }],
         execute: function() {
             // we dont have selector, because its not a nested component
             ProductDetailComponent = (function () {
-                function ProductDetailComponent() {
+                function ProductDetailComponent(_routeParams, _router, _productService) {
+                    this._routeParams = _routeParams;
+                    this._router = _router;
+                    this._productService = _productService;
                     this.pageTitle = "Product Detail";
+                    this.productId = +_routeParams.get('id');
+                    this.pageTitle += ": " + this.productId;
+                    console.log(_routeParams.get('id'));
                 }
+                ProductDetailComponent.prototype.onBack = function () {
+                    this._router.navigate(['Products']);
+                };
+                ProductDetailComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._productService.getProduct(this.productId)
+                        .subscribe(function (products) { return _this.product = products; }, function (error) { return _this.errorMessage = error; });
+                };
                 ProductDetailComponent = __decorate([
                     core_1.Component({
                         templateUrl: 'app/products/product-detail.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.RouteParams, router_2.Router, product_service_1.ProductService])
                 ], ProductDetailComponent);
                 return ProductDetailComponent;
             }());

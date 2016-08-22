@@ -1,7 +1,7 @@
 import { Injectable } from 'angular2/core';
 import { IProduct } from '../product';
 
-import {Http, Response} from 'angular2/http';
+import {Http, Response, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
  
 @Injectable()
@@ -16,9 +16,15 @@ export class ProductService{
             .map(function(resp: Response){
                 return <IProduct[]>resp.json();
             })
-            .do(data => console.log('All: '+JSON.stringify(data)))
+            // .do(data => console.log('All: '+JSON.stringify(data)))
             .catch(this.handleError);
             
+    }    
+
+    getProduct(id: number): Observable<IProduct> {
+        return this.getProducts()
+            .map((products: IProduct[]) => products.find(p => p.productId === id))
+            // .do(data => console.log('All: '+JSON.stringify(data)));
     }
 
     private handleError(error: Response){

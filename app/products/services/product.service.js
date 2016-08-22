@@ -34,8 +34,12 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                         .map(function (resp) {
                         return resp.json();
                     })
-                        .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
                         .catch(this.handleError);
+                };
+                ProductService.prototype.getProduct = function (id) {
+                    return this.getProducts()
+                        .map(function (products) { return products.find(function (p) { return p.productId === id; }); });
+                    // .do(data => console.log('All: '+JSON.stringify(data)));
                 };
                 ProductService.prototype.handleError = function (error) {
                     console.warn(error);
