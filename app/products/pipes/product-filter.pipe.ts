@@ -4,7 +4,7 @@ import { IProduct } from '../product';
 @Pipe({
     name: 'productFilter'
 })
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 export class ProductFilterPipe implements PipeTransform{
 
     transform(value: IProduct[], args: string[]): IProduct[]{
